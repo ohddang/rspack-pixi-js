@@ -1,0 +1,25 @@
+{
+  "name": "rsbuild-vanilla-js",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "rsbuild dev --open",
+    "dev:maze": "cross-env ENTRY_NAME=maze rsbuild dev --open",
+    "dev:sample": "cross-env ENTRY_NAME=sample rsbuild dev --open",
+    "build": "rsbuild build",
+    "preview": "rsbuild preview",
+    "watch:maze": "nodemon --watch src --ext html --exec \"yarn run dev:maze\"",
+    "watch:sample": "nodemon --watch src --ext html --exec \"yarn run dev:sample\""
+  },
+  "devDependencies": {
+    "@rsbuild/core": "^1.0.1",
+    "@rspack/cli": "^1.0.4",
+    "@rspack/core": "^1.0.4",
+    "cross-env": "^7.0.3",
+    "nodemon": "^3.1.4",
+    "prettier": "3.3.3"
+  },
+  "dependencies": {
+    "@pixi/app": "^7.4.2"
+  }
+}

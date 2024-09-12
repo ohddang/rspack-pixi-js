@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Other</title>
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" /> -->
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Fascinate+Inline&display=swap" rel="stylesheet" /> -->
+    <style media="screen, print">
+      @font-face {
+        font-family: 'Fascinate';
+        src: url('./sample/font/FascinateInline-Regular.ttf');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+    <script src="https://pixijs.download/release/pixi.min.js"></script>
+  </head>
+  <body>
+    <div id="app" class="content sub" style="font-family: Fascinate, system-ui">
+      Mounted SAMPLE
+      <div>
+        <img
+          style="width: 100px; height: 100px; position: absolute; top: 0; left: 0"
+          src="./sample/image/pixi-logo.png"
+        />
+        <img
+          style="width: 100px; height: 100px; position: absolute; bottom: 0; right: 0"
+          src="./sample/svg/rspack-logo.svg"
+        />
+        <button id="button" style="position: absolute; top: 30%; left: 50%">Sound</button>
+        <audio id="sound"><source src="./sample/audio/arrow-whoosh.wav" type="audio/wav" /></audio>
+      </div>
+    </div>
+    <script type="module">
+      const app = new PIXI.Application()
+      await app.init({ width: 640, height: 360 })
+      document.body.appendChild(app.canvas)
+
+      await PIXI.Assets.load('./image/pixi-logo.png')
+      let sprite = PIXI.Sprite.from('./image/pixi-logo.png')
+      app.stage.addChild(sprite)
+
+      let elapsed = 0.0
+      app.ticker.add((ticker) => {
+        elapsed += ticker.deltaTime
+        sprite.x = 100.0 + Math.cos(elapsed / 50.0) * 100.0
+      })
+    </script>
+  </body>
+</html>
