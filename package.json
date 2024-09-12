@@ -13,8 +13,6 @@
   },
   "devDependencies": {
     "@rsbuild/core": "^1.0.1",
-    "@rspack/cli": "^1.0.4",
-    "@rspack/core": "^1.0.4",
     "cross-env": "^7.0.3",
     "nodemon": "^3.1.4",
     "prettier": "3.3.3"
